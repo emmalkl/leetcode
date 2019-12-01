@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var lengthOfLongestSubstring = function(s) {
+    //字符串转数组
+    var arr=s.split('');
+    if(arr!=[]){
+
+    }
+    var res=[arr[0]];//空数组存储无重复子串
+    var len=1;//记下res数组的长度
+    for(var i=1;i<arr.length;i++){
+       for(var j=0;j<res.length;j++){
+          if(arr[i]==res[j]){
+            res.splice(0,res.findIndex((item)=>item==arr[i])+1);
+          }
+       }
+       res.push(arr[i]);
+       len=len>res.length?len:res.length;
+       console.log(res);
+    }
+    return len;
+};
+    lengthOfLongestSubstring("")
+    </script>
+</body>
+</html>

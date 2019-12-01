@@ -28,11 +28,30 @@
  * @param {string} s
  * @return {string}
  */
-   var longestPalindrome = function(s) {
-     var arr=s.split('');//字符串转数组
-     var res=[];
-     
-   };
+  /**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+    var arr=s.split('');//字符串转数组
+    if(arr.length!=1){
+       var res;//a
+       for(var i=0;i<arr.length;i++){//
+          for(var j=arr.length-1;j<arr.length;j--){//
+             if(arr[i]==arr[j]){
+                res=arr.slice(i,j);
+               if(res.toString()==res.reverse().toString()){//回文子串
+                return res.join('');//bab
+                }else{
+                   continue;
+                }
+             }
+          }
+       }
+    }else{
+       return "arr[0]";
+    }
+};
    longestPalindrome("babad")
     </script>
 </body>
