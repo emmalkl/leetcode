@@ -26,7 +26,42 @@
     输出: "LCIRETOESIIGEDHN"
     */
     /**/
-    
+var convert = function(s, numRows) {
+    if(numRows==1){
+       return s;//原样输出
+    }
+    var arr=s.split('');
+    //奇数列：line%2！=0  偶数列line%2==0
+    //截取数组
+    var flag=numRows;
+    var res=[];
+    var result=[];
+    // var a=[];
+    // for(var i=0;i<=numRows-2;i++){//res偶数的二维数组内有可能出现没有填满的情况
+    //    a.push("");
+    // }
+    for(var i=0;i<arr.length;){
+        //判断是否是奇数个数组
+       if(flag==numRows){
+          res.push(arr.slice(i,i+flag));
+          i+=flag;
+          flag=numRows-2;
+       }else if(flag==numRows-2){
+          res.push([""].concat(arr.slice(i,i+flag).reverse().concat('')));
+          i+=flag;
+          flag=numRows;
+       }
+    }
+    console.log(res);//输出res=[["L", "E", "E", "T"],["C", "O"]。。。]
+    for(var m=0;m<numRows;m++){//循环res
+       for(var j=0;j<res.length;j++){//循环二维
+          result.push(res[j][m]);
+       }
+    }
+    var a=result.join('');
+    console.log(a);
+};
+convert("PAYPALISHIRING",3)
     </script>
 </body>
 </html>
