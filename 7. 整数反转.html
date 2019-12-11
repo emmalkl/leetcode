@@ -21,7 +21,36 @@
 
 输入: 120
 输出: 21*/
-
+    /**
+ * @param {number} x
+ * @return {number}
+ */
+ var reverse = function(x) {
+     //数字转数组：先把数组转成字符串，再转成数组
+     var str=x.toString();
+     var arr=str.split('');
+    if(arr[0] ==  "-"){
+        var res=arr.slice(1);
+        res.reverse();//[0,2,1];
+        if(res[0]==0){//判断第一项是否为0
+            res.splice(0,1); 
+        }
+        var newstr=arr[0].concat(res).split(',').join('');//21
+    }else{
+        var res=arr.reverse();
+        if(res[0]==0){//判断第一项是否为0
+            res.splice(0,1); 
+        }
+        var newstr=res.join('');//21
+        
+    }
+    if(Math.abs(newstr)>2147483648){
+        return 0;
+    }else{
+        return newstr;
+    }
+};
+reverse(123);
     </script>
 </body>
 </html>
