@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
+
+        示例 1:
+        
+        输入: 1->1->2
+        输出: 1->2
+        示例 2:
+        
+        输入: 1->1->2->3->3
+        输出: 1->2->3
+
+    <script>
+        /**
+        * Definition for singly-linked list.定义链表
+        * function ListNode(val) {
+        *     this.val = val;
+        *     this.next = null;
+        * }
+        */
+        /**
+        * @param {ListNode} head
+        * @return {ListNode}
+        */
+        var deleteDuplicates = function(head) {
+            if(head==null||head.next==null){
+            return head;
+            }
+            head.next=deleteDuplicates(head.next);
+            if(head.val==head.next.val){
+            head=head.next;
+            }
+            return head;
+        };
+    </script>
+</body>
+</html>
